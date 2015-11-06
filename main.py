@@ -2,6 +2,13 @@ import sys
 import crawl
 import db_conn
 
+"""
+    Crawl a webpage's links within its domain
+    Usage:
+        python main "http://www.example.com"
+
+    Terminates on completion or keyboard interrupt
+"""
 def main(argv=None):
     try:
         db_cnx = db_conn.db_conn()

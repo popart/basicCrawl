@@ -1,6 +1,12 @@
 import mysql.connector
 from mysql.connector import errorcode
 
+"""
+    Stores the db connection information 
+    Contains functions to write to the db
+
+    todo: separate connection parameters to a config file
+"""
 class db_conn:
     cnx = None
 
@@ -23,7 +29,10 @@ class db_conn:
     def close(self):
         self.cnx.close()
 
-    # note, will not override duplicate link
+    """ 
+        Insert a row (url_from, url_to) to the link_edges table
+        Note: does not check for duplicates (see _add_links_q)
+    """
     def insert_link_edge(self, url_str, url_str_n):
         cursor = self.cnx.cursor()
         cursor.execute(self._add_links_q, (url_str, url_str_n));
