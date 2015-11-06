@@ -12,6 +12,9 @@ def main(argv=None):
         db_cnx.close()
     except IndexError:
         print "Please run with a url (ex. \"python main.py http://www.example.com\")"
+    except KeyboardInterrupt:
+        print "Stopped crawling on interrupt."
+        db_cnx.close()
 
 if __name__ == "__main__":
     sys.exit(main())

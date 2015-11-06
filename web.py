@@ -21,14 +21,16 @@ def printHtml(html):
 
 # string -> string
 def domain(url_str):
-    p = urlparse(url_str)
-    return p.hostname
+    try:
+        p = urlparse(url_str)
+        pure_domain_list = p.hostname.split('.')[-2:] #only last 2 sections of domain matter
+        return '.'.join(pure_domain_list)
+    except:
+        return ''
 
 def domain_eq(d1, d2):
-    if d2 is None or d1 is None:
+    if d2 is '' or d1 is '':
         return True
 
-    d1 = re.sub(r'^www.', '', d1)
-    d2 = re.sub(r'^www.', '', d2)
     return d1 == d2
 
