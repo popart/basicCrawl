@@ -18,8 +18,10 @@ def crawl(url_str, db_cnx):
         _, _, url_str_n, _ = link
         domain_n = web.domain(url_str_n)
 
-        if domain_n == domain:
-            print url_str + " -> " + url_str_n + ": " + domain_n
+        if web.domain_eq(domain_n, domain):
+            print url_str + " -> " + url_str_n
             db_cnx.insert_link_edge(url_str, url_str_n)
             if (url_str_n not in links_found):
                 crawl(url_str_n, db_cnx) # <- will go deep into 1st link, should multithread
+
+
