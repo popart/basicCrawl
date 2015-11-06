@@ -4,7 +4,7 @@ python 2.7
 pip install -r requirements.txt
 
 -------------------------------------
--- general info
+-- general db info
 db { host: 'dev.findmine.us',
      user: 'andrew',
      password: 'andrew',
