@@ -5,13 +5,13 @@ pip install -r requirements.txt
 
 -------------------------------------
 -- general db info
-db { host: 'dev.findmine.us',
-     user: 'andrew',
-     password: 'andrew',
-     database: 'andrew' }
+db { host: '...',
+     user: '...',
+     password: '...',
+     database: '...' }
 
 -- connect (enter password "andrew")
-mysql -u andrew -p -h dev.findmine.us andrew
+mysql -u $USER -p -h $HOST $DB
 
 -- scratch & replace table
 drop table if exists link_edges;
